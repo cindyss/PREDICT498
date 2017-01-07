@@ -1,0 +1,43 @@
+/*Name your library.  Note change directory to your own*/
+libname mydata "/home/brandonlarson20170/sasuser.v94";
+
+/*Use Proc Import to convert each file of the dataset to a SAS Dataset*/
+proc import datafile="/home/brandonlarson20170/sasuser.v94/app_events.csv" out=mydata.apps_events dbms=dlm replace;
+   delimiter=",";
+   getnames=yes;
+run;
+
+proc import datafile="/home/brandonlarson20170/sasuser.v94/app_labels.csv" out=mydata.app_labels dbms=dlm replace;
+   delimiter=",";
+   getnames=yes;
+run;
+
+proc import datafile="/home/brandonlarson20170/sasuser.v94/events.csv" out=mydata.events dbms=dlm replace;
+   delimiter=",";
+   getnames=yes;
+run;
+
+proc import datafile="/home/brandonlarson20170/sasuser.v94/gender_age_train.csv" out=mydata.gender_age_train dbms=dlm replace;
+   delimiter=",";
+   getnames=yes;
+run;
+
+proc import datafile="/home/brandonlarson20170/sasuser.v94/gender_age_test.csv" out=mydata.gender_age_test dbms=dlm replace;
+   delimiter=",";
+   getnames=yes;
+run;
+
+proc import datafile="/home/brandonlarson20170/sasuser.v94/label_categories.csv" out=mydata.label_categories dbms=dlm replace;
+   delimiter=",";
+   getnames=yes;
+run;
+
+proc import datafile="/home/brandonlarson20170/sasuser.v94/phone_brand_device_model.csv" out=mydata.phone_brand_device_model dbms=dlm replace;
+   delimiter=",";
+   getnames=yes;
+run;
+
+proc import datafile="/home/brandonlarson20170/sasuser.v94/sample_submission.csv" out=mydata.sample_submission dbms=dlm replace;
+   delimiter=",";
+   getnames=yes;
+run;
