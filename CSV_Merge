@@ -19,20 +19,20 @@ phone_brand_device_model=pandas.read_csv('phone_brand_device_model_converted.csv
 
 # merge events and app_labels on event id
 data=pandas.merge(events,app_events,left_on='event_id',right_on='event_id', how='left', suffixes=['','_'])
-data=data.drop('event_id_',1)
+#data=data.drop('event_id_',1)
 data=data.drop('is_installed',1)
 
 # merge gender_age and phone data on device_id
 data=pandas.merge(data,gender_age_train,left_on='device_id',right_on='device_id', how='left',suffixes=['','_'])
-data=data.drop('device_id_',1)
+#data=data.drop('device_id_',1)
 data = data[np.isfinite(data['age'])]
 
 #Commented out test file to remove from merge -- Can be added if desired
 #data=pandas.merge(data,gender_age_test,left_index='device_id',right_index='device_id', how='left',suffixes=['','_'])
 #data=data.drop('device_id_',1)
 
-data=pandas.merge(data,phone_brand_device_model,left_index='device_id',right_index='device_id', how='left',suffixes=['','_'])
-data=data.drop('device_id_',1)
+data=pandas.merge(data,phone_brand_device_model,left_on='device_id',right_on='device_id', how='left',suffixes=['','_'])
+#data=data.drop('device_id_',1)
 
 # merge app labels on app_id
 data=pandas.merge(data,app_labels,left_index='app_id',right_index='app_id', how='left',suffixes=['','_'])
